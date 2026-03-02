@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./src/styles/browse.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<nav class="nav_placement">
+				<div class="nav_logo"><img src="./src/assets/Images/Logo.png" /></div>
+				<div class="nav_centerbuttons">
+					<li><a href="./index.html">Home</a></li>
+					<li><a href="./browse.html">Browse</a></li>
+					<li><a href="./map.html">Map</a></li>
+				</div>
+			</nav>
+		</header>
+
+		<div class="wrapper">
+			<div class="filter_container">
+				<div class="search">
+					<input type="text" placeholder="Search for parks" />
+				</div>
+				<div class="filter_buttons">
+					<button>Closest</button>
+					<button>Top rated</button>
+					<button>Most reviewed</button>
+				</div>
+				<label>Areas</label>
+				<div class="areas_scroll">
+					<div class="area-card">Anderlecht</div>
+					<div class="area-card">Bruxelles</div>
+					<div class="area-card">Ixelles</div>
+					<div class="area-card">Evere</div>
+					<div class="area-card">Ganshoren</div>
+					<div class="area-card">Jette</div>
+					<div class="area-card">Koekelberg</div>
+					<div class="area-card">Auderghem</div>
+					<div class="area-card">Schaerbeek</div>
+					<div class="area-card">Berchem-Saint-Agathe</div>
+					<div class="area-card">Saint-Gilles</div>
+					<div class="area-card">Molenbeek-Saint-Jean</div>
+					<div class="area-card">Saint-Josse-Ten-Noode</div>
+					<div class="area-card">Woluwe-Saint-Lambert</div>
+					<div class="area-card">Woluwe-Saint-Pierre</div>
+					<div class="area-card">Uccle</div>
+					<div class="area-card">Forest</div>
+					<div class="area-card">Watermael-Boitsfort</div>
+				</div>
+				<div class="equipment">
+					<label>Equipment</label>
+					<button>Pull-up bar</button>
+					<button>Monkey bar</button>
+					<button>Dip bar</button>
+					<button>Parallel bars</button>
+				</div>
+				<div class="add_park">
+					<label>Help us grow the map</label>
+					<button class="addpark_btn_overlay">Add your own spot!</button>
+				</div>
+			</div>
+			<div class="park_container">
+				<div class="parks_header">
+					<div class="parks_title">
+						<h2>Parks in Brussels</h2>
+						<div class="parks_subtitle">
+							Showing
+							<div id="parksCount" class="inline_number">12</div>
+							spots
+						</div>
+					</div>
+				</div>
+
+				<div class="parks_grid">
+					<article class="park_card">
+						<div class="park_img">
+							<div class="park_badge open">Open 24/7</div>
+						</div>
+
+						<div class="park_content">
+							<div class="park_top">
+								<h3 class="park_name">Parc du Cinquantenaire</h3>
+								<div class="park_rating">
+									<div class="rating_number">4.5</div>
+									<div class="rating_stars">★★★★★</div>
+								</div>
+							</div>
+
+							<p class="park_city">Brussels</p>
+
+							<div class="equipment_tags">
+								<div class="tag">Pull-up bar</div>
+								<div class="tag">Dip bar</div>
+							</div>
+
+							<div class="park_buttons">
+								<button class="button_left">View details</button>
+								<button class="button_right">Add review</button>
+							</div>
+						</div>
+					</article>
+
+					<article class="park_card">
+						<div class="park_img">
+							<div class="park_badge closed">Not 24/7</div>
+						</div>
+
+						<div class="park_content">
+							<div class="park_top">
+								<h3 class="park_name">Parc de Forest</h3>
+								<div class="park_rating">
+									<div class="rating_number">4.2</div>
+									<div class="rating_stars">★★★★☆</div>
+								</div>
+							</div>
+
+							<p class="park_city">Brussels</p>
+
+							<div class="equipment_tags">
+								<div class="tag">Monkey bar</div>
+								<div class="tag">Parallel bars</div>
+							</div>
+
+							<div class="park_buttons">
+								<button class="button_left">View details</button>
+								<button class="button_right">Add review</button>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+
+		<!-- addpark OVERLAY   -->
+		<div class="modal_overlay" id="addParkModal" aria-hidden="true">
+			<div class="modal_card" aria-modal="true" aria-labelledby="modalTitle">
+				<div class="modal_top">
+					<h3 id="modalTitle">Add a new park</h3>
+					<button class="modal_close" type="button" aria-label="Close modal">
+						&#x2715;
+					</button>
+				</div>
+
+				<form class="modal_form" id="addParkForm">
+					<div class="form_row">
+						<label for="parkName">Park name</label>
+						<input
+							id="parkName"
+							name="name"
+							type="text"
+							placeholder="e.g. Parc du Cinquantenaire"
+							required
+						/>
+					</div>
+
+					<div class="form_row">
+						<label for="parkCity">City / Area</label>
+						<input
+							id="parkCity"
+							name="city"
+							type="text"
+							placeholder="e.g. Brussels / Ixelles"
+							required
+						/>
+					</div>
+
+					<div class="form_row">
+						<label>Equipment</label>
+						<div class="equipment_pills">
+							<label class="pill">
+								<input type="checkbox" name="equipment" value="pullup_bar" />
+								<div>Pull-up bar</div>
+							</label>
+
+							<label class="pill">
+								<input type="checkbox" name="equipment" value="monkey_bar" />
+								<span>Monkey bar</span>
+							</label>
+
+							<label class="pill">
+								<input type="checkbox" name="equipment" value="dip_bar" />
+								<span>Dip bar</span>
+							</label>
+
+							<label class="pill">
+								<input type="checkbox" name="equipment" value="parallel_bars" />
+								<span>Parallel bars</span>
+							</label>
+						</div>
+					</div>
+
+					<div class="form_row form_switch">
+						<label for="open247">Open 24/7</label>
+						<input id="open247" name="open24_7" type="checkbox" />
+					</div>
+
+					<div class="modal_buttons">
+						<button class="modal_btn linkse" type="button" id="cancelAddPark">
+							Cancel
+						</button>
+						<button class="modal_btn rechtse" type="submit">Submit park</button>
+					</div>
+
+					<p class="form_hint" id="formHint">Select at least 1 equipment</p>
+				</form>
+			</div>
+		</div>
+		<div class="modal_overlay" id="addReviewModal" aria-hidden="true">
+			<div class="modal_card">
+				<div class="modal_top">
+					<h3 id="reviewTitle">Add review</h3>
+					<button class="modal_close_review" type="button">&#x2715;</button>
+				</div>
+
+				<form class="modal_form" id="addReviewForm">
+					<input type="hidden" id="reviewParkId" name="parkId" />
+
+					<div class="form_row">
+						<label for="reviewRating">Rating</label>
+						<div class="rating_row">
+							<input
+								id="reviewRating"
+								name="rating"
+								type="range"
+								min="0"
+								max="5"
+								step="0.5"
+								value="5"
+							/>
+							<span id="reviewRatingValue" class="inline_number">5.0</span>
+						</div>
+					</div>
+
+					<div class="form_row">
+						<label for="reviewText">Your review</label>
+						<textarea
+							id="reviewText"
+							name="text"
+							rows="4"
+							placeholder="Leave a comment"
+							required
+						></textarea>
+					</div>
+
+					<div class="modalreview_buttons">
+						<button class="modal_btn left" type="button" id="cancelReview">
+							Cancel
+						</button>
+						<button class="modal_btn right" type="submit">Submit review</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script type="module" src="./src/pages/browse.js"></script>
+	</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="./src/styles/map.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<nav class="nav_placement">
+				<div class="nav_logo"><img src="./src/assets/Images/Logo.png" /></div>
+				<div class="nav_centerbuttons">
+					<li><a href="./index.html">Home</a></li>
+					<li><a href="./browse.html">Browse</a></li>
+					<li><a href="./map.html">Map</a></li>
+				</div>
+			</nav>
+		</header>
+		<div class="wrapper">
+			<div class="map_wrap">
+				<div class="overlay">
+					<div class="sort_section dropdown">
+						<label class="d-block mb-1">Sort by</label>
+						<button
+							class="btn btn-secondary dropdown-toggle w-100 text-left"
+							type="button"
+							id="sortDropdown"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							Closest
+						</button>
+
+						<div class="dropdown-menu w-100" aria-labelledby="sortDropdown">
+							<button
+								class="dropdown-item js-sort"
+								type="button"
+								data-value="closest"
+							>
+								Closest
+							</button>
+							<button
+								class="dropdown-item js-sort"
+								type="button"
+								data-value="top_rated"
+							>
+								Top rated
+							</button>
+						</div>
+					</div>
+					<div class="sort_section dropdown">
+						<label class="d-block mb-1">Equipment</label>
+						<button
+							class="btn btn-secondary dropdown-toggle w-100 text-left"
+							type="button"
+							id="equipmentDropdown"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							Pull-up bar
+						</button>
+
+						<div class="dropdown-menu w-100" aria-labelledby="sortDropdown">
+							<button
+								class="dropdown-item js-equipment"
+								type="button"
+								data-value="pullup_bar"
+							>
+								Pull-up bar
+							</button>
+							<button
+								class="dropdown-item js-equipment"
+								type="button"
+								data-value="monkey_bar"
+							>
+								Monkey bar
+							</button>
+							<button
+								class="dropdown-item js-equipment"
+								type="button"
+								data-value="dip_bar"
+							>
+								Dip bar
+							</button>
+							<button
+								class="dropdown-item js-equipment"
+								type="button"
+								data-value="parallel_bars"
+							>
+								Parallel bars
+							</button>
+						</div>
+					</div>
+
+					<div class="checkbox_section">
+						<label>
+							<input type="checkbox" id="only247filter" />Only 24/7 open
+						</label>
+					</div>
+
+					<div class="form_button">
+						<button>Filter</button>
+					</div>
+				</div>
+				<div id="map"></div>
+				<button class="add_park_btn">+ Add new Park</button>
+			</div>
+		</div>
+		<!-- addpark OVERLAY   -->
+		<div class="modal_overlay" id="addParkModal" aria-hidden="true">
+			<div class="modal_card" aria-modal="true" aria-labelledby="modalTitle">
+				<div class="modal_top">
+					<h3 id="modalTitle">Add a new park</h3>
+					<button class="modal_close" type="button" aria-label="Close modal">
+						&#x2715;
+					</button>
+				</div>
+
+				<form class="modal_form" id="addParkForm">
+					<div class="form_row">
+						<label for="parkName">Park name</label>
+						<input
+							id="parkName"
+							name="name"
+							type="text"
+							placeholder="e.g. Parc du Cinquantenaire"
+							required
+						/>
+					</div>
+
+					<div class="form_row">
+						<label for="parkCity">City / Area</label>
+						<input
+							id="parkCity"
+							name="city"
+							type="text"
+							placeholder="e.g. Brussels / Ixelles"
+							required
+						/>
+					</div>
+
+					<div class="form_row">
+						<label>Equipment</label>
+						<div class="equipment_pills">
+							<label class="pill">
+								<input type="checkbox" name="equipment" value="pullup_bar" />
+								<div>Pull-up bar</div>
+							</label>
+
+							<label class="pill">
+								<input type="checkbox" name="equipment" value="monkey_bar" />
+								<span>Monkey bar</span>
+							</label>
+
+							<label class="pill">
+								<input type="checkbox" name="equipment" value="dip_bar" />
+								<span>Dip bar</span>
+							</label>
+
+							<label class="pill">
+								<input type="checkbox" name="equipment" value="parallel_bars" />
+								<span>Parallel bars</span>
+							</label>
+						</div>
+					</div>
+
+					<div class="form_row form_switch">
+						<label for="open247">Open 24/7</label>
+						<input id="open247" name="open24_7" type="checkbox" />
+					</div>
+
+					<div class="modal_buttons">
+						<button class="modal_btn linkse" type="button" id="cancelAddPark">
+							Cancel
+						</button>
+						<button class="modal_btn rechtse" type="submit">Submit park</button>
+					</div>
+
+					<p class="form_hint" id="formHint">Select at least 1 equipment</p>
+				</form>
+			</div>
+		</div>
+		<footer>
+			<div class="footer">
+				<div class="left_part">
+					<div class="footer_logo">
+						<img src="./src/assets/Images/Logo.png" />
+					</div>
+					<div class="column1">
+						<h4>CaliBrussels</h4>
+						<p>
+							Discover outdoor workout spots near you.Browse calisthenics parks,
+							read reviews and plan your next training session.
+						</p>
+						<div class="socials">
+							<a href="">
+								<img src="#" />
+							</a>
+							<a href="#">
+								<img src="#" />
+							</a>
+							<a href="#">
+								<img src="#" />
+							</a>
+							<a href="#">
+								<img src="#" />
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="right_part">
+					<div class="column2">
+						<a href="./index.html">Home</a>
+						<a href="./browse.html">Browse</a>
+						<a href="./map.html">Map</a>
+					</div>
+					<div class="column3">
+						<p>Contact</p>
+						<p>Quai de l'Industrie 170, 1070 Anderlecht</p>
+						<p>damian@erasmus.com</p>
+						<p>0486 00 00 00</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+		<script type="module" src="./src/pages/map.js"></script>
+	</body>
+</html>

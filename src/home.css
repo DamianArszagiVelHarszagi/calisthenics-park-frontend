@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+body {
+	background-color: black;
+	text-decoration: none;
+	font-family: "Montserrat", sans-serif;
+	max-width: 100%;
+	height: max-content;
+
+	background-image: url("./assets/Images/background_img.png");
+	background-size: cover;
+	background-position: center;
+}
+
+/*-----------------------NAV----------------------------------*/
+.nav_placement {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	max-width: 1400px;
+	margin: 30px auto 0;
+}
+
+.nav_logo {
+	flex: 0 0 auto;
+}
+.nav_logo img {
+	width: 250px;
+}
+
+.nav_centerbuttons {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 100px;
+	font-size: 20px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.nav_centerbuttons a {
+	text-decoration: none;
+	color: white;
+}
+
+/*----------------------HOME-----------------------------------*/
+
+.front_page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 15vh;
+	gap: 20px;
+	width: auto;
+	height: 500px;
+}
+h1 {
+	color: white;
+	font-size: 50px;
+}
+.front_buttons {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+.browse_parks {
+	background-color: #1c4a40;
+	color: white;
+	width: 160px;
+	height: 45px;
+	border-radius: 30px;
+
+	line-height: 45px;
+	box-sizing: border-box;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	transition: transform 0.3s ease-in, background-color 0.3s ease-in,
+		color 0.3s ease-in, opacity 0.3s ease-in;
+}
+.browse_parks:hover {
+	background-color: #c3d7d2;
+	color: black;
+	transform: scale(1.04);
+}
+.open_map {
+	background-color: #1c4a40;
+	color: white;
+	width: 160px;
+	height: 45px;
+	border-radius: 30px;
+	color: white;
+	line-height: 45px;
+	box-sizing: border-box;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	transition: transform 0.3s ease-in, background-color 0.3s ease-in,
+		color 0.3s ease-in, opacity 0.3s ease-in;
+}
+.open_map:hover {
+	background-color: #c3d7d2;
+	color: black;
+	transform: scale(1.04);
+}
+/*------------------------Browse-----------------------*/
+
+.browsing {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: 500px;
+	justify-content: center;
+	align-items: center;
+	gap: 100px;
+}
+
+.card_left,
+.card_center,
+.card_right {
+	position: relative;
+	width: 300px;
+	overflow: hidden;
+}
+
+.card_left a,
+.card_center a,
+.card_right a {
+	display: block;
+	text-decoration: none;
+}
+
+.card_left img,
+.card_center img,
+.card_right img {
+	width: 100%;
+	height: auto;
+	display: block;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+
+.overlay h2 {
+	font-size: 20px;
+	color: white;
+	margin: 0;
+}
+.browsing p {
+	font-size: 17.5px;
+	color: white;
+	padding-top: 20px;
+	text-align: center;
+}
+
+.card_left:hover img,
+.card_center:hover img,
+.card_right:hover img {
+	opacity: 0.6;
+	transform: scale(1.1);
+}
+
+.card_left:hover .overlay,
+.card_center:hover .overlay,
+.card_right:hover .overlay {
+	opacity: 1;
+}
+
+/*---------------What-------------------------*/
+
+.what {
+	display: flex;
+	background-color: #1c4a40;
+	margin-top: 100px;
+	width: 100%;
+}
+
+.what_img {
+	flex: 0 0 auto;
+}
+.what_img img {
+	width: 800px;
+	height: auto;
+	display: block;
+}
+
+.what_text {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.what_text h3 {
+	color: white;
+	text-align: center;
+	font-size: 25px;
+}
+.what_text p {
+	text-align: center;
+	max-width: 600px;
+	font-size: 15px;
+	color: white;
+}
+
+/*-----------------------FOOTER------------------------*/
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	color: white;
+	background-color: #2b2b2b;
+	padding: 15px;
+	gap: 200px;
+}
+.left_part {
+	display: flex;
+	flex-direction: row;
+	gap: 100px;
+}
+.right_part {
+	display: flex;
+	flex-direction: row;
+	gap: 200px;
+}
+.footer_logo img {
+	width: 200px;
+	padding: 10px;
+}
+.column1 {
+	display: flex;
+	flex-direction: column;
+}
+.column1 p {
+	font-size: 12px;
+	width: 350px;
+}
+.column2 {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+.column2 a,
+.column3 {
+	text-decoration: none;
+	color: white;
+	font-size: 12.5px;
+}
+/*--------------------------MOBILE---------------------*/
+
+@media (max-width: 768px) {
+	/*-------------------------NAV------------*/
+	.nav_placement {
+		flex-wrap: wrap;
+		padding: 0 16px;
+		gap: 12px;
+	}
+
+	.nav_logo img {
+		width: 160px;
+	}
+
+	.nav_centerbuttons {
+		width: 100%;
+		justify-content: center;
+		gap: 24px;
+		font-size: 16px;
+	}
+
+	.nav_rightbuttons {
+		gap: 12px;
+		font-size: 16px;
+	}
+
+	.nav_rightbuttons .nav_login,
+	.nav_rightbuttons .nav_register {
+		width: 100px;
+		height: 36px;
+		line-height: 36px;
+	}
+
+	/*---------------------------HOME------------------*/
+	.front_page {
+		margin-top: 10vh;
+		height: auto;
+		min-height: 55vh;
+		padding: 0 16px;
+	}
+
+	h1 {
+		font-size: 32px;
+		text-align: center;
+	}
+
+	.front_buttons {
+		flex-direction: column;
+		width: 100%;
+		max-width: 260px;
+	}
+
+	.browse_parks,
+	.open_map {
+		width: 100%;
+	}
+
+	/*------------------------BROWSING---------------*/
+	.browsing {
+		height: auto;
+		gap: 30px;
+		padding: 0 16px;
+	}
+
+	.card_left,
+	.card_center,
+	.card_right {
+		width: min(320px, 100%);
+	}
+
+	/*--------------------WHAT---------------------*/
+	.what {
+		flex-direction: column;
+		margin-top: 60px;
+	}
+
+	.what_img img {
+		width: 100%;
+	}
+
+	.what_text {
+		padding: 16px;
+	}
+
+	.what_text p {
+		max-width: 100%;
+	}
+
+	/* FOOTER */
+	.wrapper {
+		flex-direction: row;
+		gap: 30px;
+		padding: 24px 16px;
+	}
+
+	.left_part,
+	.right_part {
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.column1 p {
+		width: 100%;
+		max-width: 380px;
+	}
+}
